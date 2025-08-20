@@ -24,3 +24,6 @@ In /programs
 All programs are also pre-built into the /build directory, double click any program to run.
 
 To recompile all files, run compile.bat
+
+# 8/20/2025
+All C files are now categorized by months

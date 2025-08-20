@@ -1,7 +1,7 @@
 #include <windows.h>
 #include <commctrl.h>
 #include <string>
-
+#include <stdio.h>
 #pragma comment(lib, "comctl32.lib")
 
 #define WIDTH 512
@@ -14,7 +14,7 @@ int counter = 0;
 void PaintBackground(HWND hwnd, HDC hdc) {
     RECT rc;
     GetClientRect(hwnd, &rc);
-    HBRUSH brush = CreateSolidBrush(RGB(30, 30, 40));
+    HBRUSH brush = CreateSolidBrush(RGB(30, 30, 255));
     FillRect(hdc, &rc, brush);
     DeleteObject(brush);
 }
@@ -39,6 +39,7 @@ LRESULT CALLBACK ButtonProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
             InvalidateRect(hwnd, NULL, TRUE);
         }
         TRACKMOUSEEVENT tme = { sizeof(tme), TME_LEAVE, hwnd, 0 };
+        printf("%a\n", tme);
         TrackMouseEvent(&tme);
     } break;
     case WM_MOUSELEAVE: {
